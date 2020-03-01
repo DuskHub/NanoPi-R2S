@@ -140,7 +140,7 @@ jobs:
           cp r2s-rk3328-config friendlywrt-rk3328/friendlywrt/.config
       
       - name: SSH connection to Actions
-        uses: DuskHub/debugger-action@master
+        uses: P3TERX/debugger-action@master
         if: env.SSH_ACTIONS == 'true'
       
       - name: Setting Defaults
