@@ -5,6 +5,9 @@ on:
     paths:
       - 'CHANGELOG.md'
 
+env:
+  SSH_ACTIONS: true
+  
 jobs:
 
   build:
@@ -135,7 +138,11 @@ jobs:
         run: |
           rm -f friendlywrt-rk3328/friendlywrt/.config*
           cp r2s-rk3328-config friendlywrt-rk3328/friendlywrt/.config
-
+      
+      - name: SSH connection to Actions
+        uses: DuskHub/debugger-action@master
+        if: env.SSH_ACTIONS == 'true'
+      
       - name: Setting Defaults
         run: |
           cd friendlywrt-rk3328/friendlywrt
